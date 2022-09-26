@@ -1,0 +1,21 @@
+{
+  "name": "minhs-garden",
+  "version": "1.0.0",
+  "description": "(CSCI 4862) Full server-side e-commerce website that allows users to browse and buy plants by delivery or pickup.",
+  "main": "Assignment1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kellylamkelly/minhs-garden.git"
+  },
+  "author": "Kelly Lam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kellylamkelly/minhs-garden/issues"
+  },
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
