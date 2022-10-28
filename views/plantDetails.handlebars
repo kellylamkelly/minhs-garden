@@ -1,39 +1,37 @@
-<body>
-    <!-- Product Name -->
-    <h2>{{plant.name}}</h2>
+<!-- Product Name -->
+<h2>{{plant.name}}</h2>
 
-    <!-- Image of Product -->
-    <div>
-        <img src={{plant.image}}>
-    </div>
+<!-- Image of Product -->
+<div>
+    <img style="height: 300px; width: auto; padding-bottom: 20px;" src="images/{{plant.image}}">
+</div>
 
-    <!-- Properties -->
-    <div>
-        <table style="border: 1px solid black;">
-            <tr>
-                <th style="border: 1px solid black;">ID</th>
-                <td style="border: 1px solid black;">{{plant.id}}</td>
-            </tr>
-            <tr>
-                <th style="border: 1px solid black;">Description</th>
-                <td style="border: 1px solid black;">{{plant.description}}</td>
-            </tr>
-            <tr>
-                <th style="border: 1px solid black;">Price</th>
-                <td style="border: 1px solid black;">${{plant.price}}</td>
-            </tr>
-            <tr>
-                <th style="border: 1px solid black;">Environment</th>
-                <td style="border: 1px solid black;">{{plant.environment}}</td>
-            </tr>
-            <tr>
-                <th style="border: 1px solid black;">Height Estimate</th>
-                <td style="border: 1px solid black;">{{plant.heightEst}}</td>
-            </tr>
-            <tr>
-                <th style="border: 1px solid black;">Sun Exposure</th>
-                <td style="border: 1px solid black;">{{plant.sunExp}}</td>
-            </tr>
-        </table>
-    </div>
-</body>
+<!-- Properties -->
+<div>
+    <table style="border: 1px solid black;">
+        <tr>
+            <th style="border: 1px solid black;">ID</th>
+            <td style="border: 1px solid black;">{{plant.id}}</td>
+        </tr>
+        <tr>
+            <th style="border: 1px solid black;">Description</th>
+            <td style="border: 1px solid black;">{{plant.description}}</td>
+        </tr>
+        <tr>
+            <th style="border: 1px solid black;">Price</th>
+            <td style="border: 1px solid black;">${{plant.price}}</td>
+        </tr>
+        <tr>
+            <th style="border: 1px solid black;">Environment</th>
+            <td style="border: 1px solid black;">{{plant.environment}}</td>
+        </tr>
+        <tr>
+            <th style="border: 1px solid black;">Height Estimate</th>
+            <td style="border: 1px solid black;">{{plant.heightEst}}</td>
+        </tr>
+        <tr>
+            <th style="border: 1px solid black;">Sun Exposure</th>
+            <td style="border: 1px solid black;">{{plant.sunExp}}</td>
+        </tr>
+    </table>
+</div>
