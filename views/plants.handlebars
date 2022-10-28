@@ -12,14 +12,8 @@
 
 <form action="http://localhost:3000/plantDetails" method="get">
     ID to get information about <input type="text" name="id"/>
-    
-    {{#if errors.MissingID}}
-    <i>Please enter an ID from above</i>
-    {{/if}}
 
-    {{!-- {{#if errors.idDoesNotExist}}
-    <i>Please enter a valid ID</i>
-    {{/if}} --}}
+    {{#if errors.idDoesNotExist}}<i>Please enter a valid ID from above</i>{{/if}}
 
     <br/>
     <input type="submit" value="Get Details"/>
