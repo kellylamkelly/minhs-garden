@@ -35,7 +35,13 @@ app.get("/plants", function (request, response) {
             price: 5.00, environment: "Indoor", heightEst: "6 to 11 inches", sunExp: "Partial, shade", image: "bambooPalm.png"
         }
     ];
-    response.render("plants", {plants: plantList});
+
+    var previous = [];
+    previous.id = ""; // Default value for id
+
+    response.render("plants", {plants: plantList,
+                                errors: null,
+                                previous: previous});
 });
 
 // Get the requested ID
@@ -94,8 +100,16 @@ app.use("/plantDetails", function (err, request, response, next) {
                 price: 5.00, environment: "Indoor", heightEst: "6 to 11 inches", sunExp: "Partial, shade", image: "bambooPalm.png"
             }
         ];
+
+        // Object for info to redisplay
+        var previous = [];
+
+        // Echo back previous text values
+        previous.id = request.id;
+
         response.render("plants", {plants: plantList, 
-                                    errors: request.errorList}); // Pass errors to form
+                                    errors: request.errorList,
+                                    previous: previous}); // Pass errors to form
     }
     else {
         next(err); // if not an "details" error, continue error routing

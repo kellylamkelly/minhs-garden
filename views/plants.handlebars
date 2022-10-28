@@ -11,9 +11,9 @@
 <br/>
 
 <form action="http://localhost:3000/plantDetails" method="get">
-    ID to get information about <input type="text" name="id"/>
+    ID to get information about <input type="text" name="id" value="{{previous.id}}"/>
 
-    {{#if errors.idDoesNotExist}}<i>Please enter a valid ID from above</i>{{/if}}
+    {{#if errors.idDoesNotExist}}<i>That is not a valid ID!</i>{{/if}}
 
     <br/>
     <input type="submit" value="Get Details"/>
