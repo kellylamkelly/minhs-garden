@@ -1,0 +1,26 @@
+<h3>Current Plants</h3>
+<table border="1">
+    {{#each plants}}
+    <tr>
+        <td>{{name}}</td>
+        <td>{{id}}</td>
+    </tr>
+    {{/each}}
+</table>
+
+<br/>
+
+<form action="http://localhost:3000/plants" method="get">
+    ID to get information about <input type="text" name="id"/>
+    
+    {{#if errors.MissingID}}
+    <i>Please enter an ID from above</i>
+    {{/if}}
+
+    {{!-- {{#if errors.idDoesNotExist}}
+    <i>Please enter a valid ID</i>
+    {{/if}} --}}
+
+    <br/>
+    <input type="submit" value="Get Details"/>
+</form>
