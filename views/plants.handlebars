@@ -1,11 +1,14 @@
 <h3>Current Plants</h3>
 <table border="1">
-    <form action="http://localhost:3000/plantDetails" method="get">
     {{#each plants}}
     <tr>
         <td>{{name}}</td>
-        <td><button name="id" value={{id}} type="submit">View Details</button></td>
+        <td>
+            <form action="plantDetails">
+                <input type="submit" value="View Details"/>
+                <input type="hidden" name="id" value="{{id}}"/>
+            </form>
+        </td>
     </tr>
     {{/each}}
-    </form>
 </table>

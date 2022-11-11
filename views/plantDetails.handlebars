@@ -8,30 +8,37 @@
 
 <!-- Properties -->
 <div>
-    <table style="border: 1px solid black;">
+    <table border="1">
         <tr>
-            <th style="border: 1px solid black;">ID</th>
-            <td style="border: 1px solid black;">{{plant.id}}</td>
+            <th>ID</th>
+            <td>{{plant.id}}</td>
         </tr>
         <tr>
-            <th style="border: 1px solid black;">Description</th>
-            <td style="border: 1px solid black;">{{plant.description}}</td>
+            <th>Description</th>
+            <td>{{plant.description}}</td>
         </tr>
         <tr>
-            <th style="border: 1px solid black;">Price</th>
-            <td style="border: 1px solid black;">${{plant.price}}</td>
+            <th>Price</th>
+            <td>${{plant.price}}</td>
         </tr>
         <tr>
-            <th style="border: 1px solid black;">Environment</th>
-            <td style="border: 1px solid black;">{{plant.environment}}</td>
+            <th>Environment</th>
+            <td>{{plant.environment}}</td>
         </tr>
         <tr>
-            <th style="border: 1px solid black;">Height Estimate</th>
-            <td style="border: 1px solid black;">{{plant.heightEst}}</td>
+            <th>Height Estimate</th>
+            <td>{{plant.heightEst}}</td>
         </tr>
         <tr>
-            <th style="border: 1px solid black;">Sun Exposure</th>
-            <td style="border: 1px solid black;">{{plant.sunExp}}</td>
+            <th>Sun Exposure</th>
+            <td>{{plant.sunExp}}</td>
         </tr>
     </table>
 </div>
+
+<br/>
+
+<form action="add">
+    <input type="submit" value="Add to Cart"/>
+    <input type="hidden" name="id" value="{{plant.id}}"/>
+</form>

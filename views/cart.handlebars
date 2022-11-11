@@ -1,0 +1,41 @@
+{{#if cart}}
+
+{{#if addplant}}<h4>Added {{addplant.name}}</h4>{{/if}}
+{{#if removeplant}}<h4>Removed {{removeplant.name}}</h4>{{/if}}
+{{#if changequantity}}<h4>Changed quantity for {{changequantity.name}}</h4>{{/if}}
+
+<h3>Your Current Shopping Cart</h3>
+<table border="1">
+    <tr>
+        <td>Plant</td>
+        <td>Price</td>
+        <td>Quantity</td>
+        <td>&nbsp;</td>
+    </tr>
+    {{#each cart}}
+        <tr>
+            <td>{{name}}</td>
+            <td>${{price}}</td>
+            <td>
+                <form action="change">
+                    <input type="text" size="1" name="quantity" value="{{quantity}}"/>
+                    <input type="submit" value="CHANGE"/>
+                    <input type="hidden" name="id" value="{{id}}"/>
+                </form>
+            </td>
+            <td>
+                <form action="remove">
+                    <input type="submit" value="REMOVE"/>
+                    <input type="hidden" name="id" value="{{id}}"/>
+                </form>
+            </td>
+        </tr>
+    {{/each}}
+    <tr>
+        <td>Total:</td>
+        <td>${{total}}</td>
+    </tr>
+</table>
+{{else}}
+<br/><b>Your cart is currently empty!</b>
+{{/if}}
