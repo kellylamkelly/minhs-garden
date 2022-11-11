@@ -1,5 +1,6 @@
 {{#if cart}}
 
+{{#if duplicate}}<h4>{{duplicate.name}} has already been added to cart. Please update quantity if needed!</h4>{{/if}}
 {{#if addplant}}<h4>Added {{addplant.name}}</h4>{{/if}}
 {{#if removeplant}}<h4>Removed {{removeplant.name}}</h4>{{/if}}
 {{#if changequantity}}<h4>Changed quantity for {{changequantity.name}}</h4>{{/if}}
@@ -15,7 +16,7 @@
     {{#each cart}}
         <tr>
             <td>{{name}}</td>
-            <td>${{price}}</td>
+            <td>${{price}} each</td>
             <td>
                 <form action="change">
                     <input type="text" size="1" name="quantity" value="{{quantity}}"/>

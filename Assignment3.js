@@ -52,6 +52,27 @@ app.get("/plantDetails", function (request, response, next) {
     response.render("plantDetails", {plant: requestedPlant});
 });
 
+// Display cart page
+app.get("/cart", function(request, response) {
+    response.render("cart", {cart: request.session.cart,
+                             total: support.getTotal(request.session.cart)});
+});
+
+// Validate selected plant not already in cart
+app.get("/add", function(request, response, next) {
+    var id = request.query.id; // get id from request
+    // check whether plant with this id is in cart
+    var errors = support.validateAdd(id, request.session.cart);
+    if (Object.keys(errors).length === 0) { // no errors in object
+        next(); // no errors, so continue normal route
+    }
+    else { // redisplay current cart with error message
+        response.render("cart", {cart: request.session.cart,
+                                 total: support.getTotal(request.session.cart),
+                                 duplicate: support.getPlantByID(id, request.session.plantSession)});
+    }
+});
+
 // Add plant to cart
 app.get("/add", function(request, response, next) {
     var id = request.query.id; // get id from request
@@ -64,32 +85,10 @@ app.get("/add", function(request, response, next) {
 });
 
 // Display cart page
-app.get("/cart", function(request, response) {
-    response.render("cart", {cart: request.session.cart,
-                             total: support.getTotal(request.session.cart)});
-});
-
-// Display cart page
 app.get("/add", function(request, response) {
     response.render("cart", {cart: request.session.cart,
                              total: support.getTotal(request.session.cart),
-                             addcourse: support.getPlantByID(request.query.id, 
-                                                            request.session.plantSession)});
-});
-
-// Display cart page
-app.get("/remove", function(request, response) {
-    response.render("cart", {cart: request.session.cart,
-                             total: support.getTotal(request.session.cart),
-                             removeplant: support.getPlantByID(request.query.id, 
-                                                            request.session.plantSession)});
-});
-
-// Display cart page
-app.get("/change", function(request, response) {
-    response.render("cart", {cart: request.session.cart,
-                             total: support.getTotal(request.session.cart),
-                             changeplant: support.getPlantByID(request.query.id, 
+                             addplant: support.getPlantByID(request.query.id, 
                                                             request.session.plantSession)});
 });
 
@@ -104,6 +103,14 @@ app.get("/remove", function(request, response, next) {
     next();
 });
 
+// Display cart page
+app.get("/remove", function(request, response) {
+    response.render("cart", {cart: request.session.cart,
+                             total: support.getTotal(request.session.cart),
+                             removeplant: support.getPlantByID(request.query.id, 
+                                                            request.session.plantSession)});
+});
+
 // Change quantity of selected plant
 app.get("/change", function(request, response, next) {
     var id = request.query.id; // get id of plant to change
@@ -114,6 +121,14 @@ app.get("/change", function(request, response, next) {
     // store modified cart back into session
     request.session.cart = cart;
     next();
+});
+
+// Display cart page
+app.get("/change", function(request, response) {
+    response.render("cart", {cart: request.session.cart,
+                             total: support.getTotal(request.session.cart),
+                             changeplant: support.getPlantByID(request.query.id, 
+                                                            request.session.plantSession)});
 });
 
 // If reach here, request not handled by any previous gets, so send error page

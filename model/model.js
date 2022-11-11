@@ -68,7 +68,7 @@ function changeQuantity(id, n, cart) {
     return cart;
 }
 
-// Remove plants with given id from cart
+// Remove plant with given id from cart
 function removePlant(id, cart) {
     // get index of plant with given id in cart
     var where = getIndex(id, cart);
@@ -84,9 +84,22 @@ function removePlant(id, cart) {
 function getTotal(cart) {
     var total = 0; // running total of price
     for (let plant of cart) {
-        total += parseInt(plant.price);
+        total += (parseInt(plant.quantity) * plant.price);
     }
     return total;
+}
+
+// Make sure plant not in cart before adding
+function validateAdd(id, cart) {
+    var errors = {}; // new empty object
+    if (cart) { // only search if cart exists
+        var where = getIndex(id, cart);
+        if (where != -1) {
+            // Add error to list
+            errors.DuplicatePlant = true;
+        }
+    }
+    return errors;
 }
 
 // Make function available publicly
@@ -96,4 +109,5 @@ module.exports = {getPlants,
                     changeQuantity,
                     addPlant,
                     removePlant,
-                    getTotal}
+                    getTotal,
+                    validateAdd}
