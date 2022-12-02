@@ -1,22 +1,22 @@
-// Retrieve list of plants
-function getPlants() {
-    const plantList = [
-        {
-            id: "PI100001", name: "Aloe Vera", description: "Aloe vera is a succulent plant species of the genus Aloe. The plant is stemless or very short-stemmed with thick, greenish, fleshy leaves that fan out from the plant's central stem.",
-            price: 5.00, environment: "Indoor", heightEst: "6 to 9 inches", sunExp: "Full, partial", image: "aloeVera.png", quantity: 1, maxQuantity: 5, minQuantity: 1
-        },
-        {
-            id: "PI100002", name: "Spider Plant", description: "The spider plant is a plant in the Chlorophytum genus. It is considered one of the most adaptable of houseplants and the easiest to grow. Spider plants can produce small white flowers.",
-            price: 10.00, environment: "Indoor", heightEst: "8 to 11 inches", sunExp: "Partial, shade", image: "spiderPlant.png", quantity: 1, maxQuantity: 5, minQuantity: 1
-        },
-        {
-            id: "PI100003", name: "Bamboo Palm", description: "A bamboo palm, or Chamaedorea, is a type of palm in the Chamaedorea genus. It's also a rare tropical delight in that, unlike many of its warm-weather cousins, it can actually thrive in lower light.",
-            price: 5.00, environment: "Indoor", heightEst: "6 to 11 inches", sunExp: "Partial, shade", image: "bambooPalm.png", quantity: 1, maxQuantity: 5, minQuantity: 1
-        }
-    ];
+// Retrieve list of plants (Assignment 3)
+// function getPlants() {
+//     const plantList = [
+//         {
+//             id: "PI100001", name: "Aloe Vera", description: "Aloe vera is a succulent plant species of the genus Aloe. The plant is stemless or very short-stemmed with thick, greenish, fleshy leaves that fan out from the plant's central stem.",
+//             price: 5.00, environment: "Indoor", heightEst: "6 to 9 inches", sunExp: "Full, partial", image: "aloeVera.png", quantity: 1, maxQuantity: 5, minQuantity: 1
+//         },
+//         {
+//             id: "PI100002", name: "Spider Plant", description: "The spider plant is a plant in the Chlorophytum genus. It is considered one of the most adaptable of houseplants and the easiest to grow. Spider plants can produce small white flowers.",
+//             price: 10.00, environment: "Indoor", heightEst: "8 to 11 inches", sunExp: "Partial, shade", image: "spiderPlant.png", quantity: 1, maxQuantity: 5, minQuantity: 1
+//         },
+//         {
+//             id: "PI100003", name: "Bamboo Palm", description: "A bamboo palm, or Chamaedorea, is a type of palm in the Chamaedorea genus. It's also a rare tropical delight in that, unlike many of its warm-weather cousins, it can actually thrive in lower light.",
+//             price: 5.00, environment: "Indoor", heightEst: "6 to 11 inches", sunExp: "Partial, shade", image: "bambooPalm.png", quantity: 1, maxQuantity: 5, minQuantity: 1
+//         }
+//     ];
 
-    return plantList;
-}
+//     return plantList;
+// }
 
 // Search for plant with given id in list
 function getPlantByID(id, plantList) {
@@ -103,8 +103,7 @@ function validateAdd(id, cart) {
 }
 
 // Make function available publicly
-module.exports = {getPlants, 
-                    getPlantByID,
+module.exports = {getPlantByID,
                     getIndex,
                     changeQuantity,
                     addPlant,
